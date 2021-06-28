@@ -11,13 +11,23 @@ var studentController = require('../controllers/student_controller')
 
 //experiment for get
 router.get('/get-student-list', function (req, res, next) {
-    console.log("router - get student list")
+    console.log("ROUTER GET STUDENT")
     studentController.getStudentListCtrl(req, res, next)
 })
 
 router.post('/save-student', function (req, res, next) {
     console.log("ROUTER SAVE STUDENT")
     studentController.saveStudentCtrl(req, res, next)
+})
+
+router.post('/update-student', function (req, res, next) {
+    console.log("ROUTER UPDATE STUDENT")
+    studentController.updateStudentCtrl(req, res, next)
+})
+
+router.post('/delete-student', function (req, res, next) {
+    console.log("ROUTER DELETE STUDENT")
+    studentController.deleteStudentCtrl(req, res, next)
 })
 
  

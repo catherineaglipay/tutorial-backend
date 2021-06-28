@@ -17,3 +17,21 @@ exports.saveStudentCtrl = async function (req, res, next) {
         devMessage: qryRes
     })
 }
+
+exports.updateStudentCtrl = async function (req, res, next) {
+    const qryRes = await studentModel.updateStudentModel(req)
+    
+    res.json({
+        statusCode: 200,
+        devMessage: qryRes
+    })
+}
+
+exports.deleteStudentCtrl = async function (req, res, next) {
+    const qryRes = await studentModel.deleteStudentModel(req)
+    
+    res.json({
+        statusCode: 200,
+        devMessage: qryRes
+    })
+}

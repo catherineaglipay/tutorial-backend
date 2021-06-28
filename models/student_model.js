@@ -23,8 +23,36 @@ exports.saveStudentModel = async function(req){
 
     const result = await conn.getQuery(query, [params.first_name, params.middle_name, params.last_name]).then(results => results);
 
-    console.log("result test: ", result)
+    console.log("MODEL SAVE RESULT: ", result)
 
     // return result.insertId
     return "Successfully added a student"
+}
+
+
+exports.updateStudentModel = async function(req){
+    params = req.body
+
+    var query   = "UPDATE student_tbl SET first_name = ?, middle_name = ?, last_name = ? WHERE id = ?"
+
+    const result = await conn.getQuery(query, [params.first_name, params.middle_name, params.last_name, params.key]).then(results => results);
+
+    console.log("MODEL UPDATE RESULT: ", result)
+
+    // return result.insertId
+    return "Successfully updated the student"
+}
+
+
+exports.deleteStudentModel = async function(req){
+    params = req.body
+
+    var query   = "DELETE FROM student_tbl WHERE id = ?"
+
+    const result = await conn.getQuery(query, [params.key]).then(results => results);
+
+    console.log("MODEL DELETE RESULT: ", result)
+
+    // return result.insertId
+    return "Successfully deleted the student"
 }
